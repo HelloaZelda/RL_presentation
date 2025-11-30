@@ -10,7 +10,13 @@ export const SLIDES: SlideContent[] = [
     layout: 'cover',
     content: {
       media: [
-        { type: 'video', placeholderText: '宇树机器人宣传片', caption: 'Unitree Robotics Demo' }
+        {
+          type: 'video',
+          src: '/videos/unitree-promo.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树机器人宣传片',
+          caption: 'Unitree Robotics Demo'
+        }
       ]
     }
   },
@@ -27,7 +33,13 @@ export const SLIDES: SlideContent[] = [
         '不是告诉它“怎么走”，而是让它自己“悟”出最稳的走法。'
       ],
       media: [
-        { type: 'image', placeholderText: '跑、跳、抗推展示', caption: 'Running, Jumping, Pushing' }
+        {
+          type: 'image',
+          src: '/pictures/unitree-running.jpg',
+          ratio: '16:9',
+          placeholderText: '跑、跳、抗推展示',
+          caption: 'Running, Jumping, Pushing'
+        }
       ]
     }
   },
@@ -61,7 +73,13 @@ export const SLIDES: SlideContent[] = [
         '它的学习方式，和机器人学走路本质上一模一样。'
       ],
       media: [
-        { type: 'image', placeholderText: 'AlphaGo Logo', caption: 'From Zero to Hero' }
+        {
+          type: 'image',
+          src: '/pictures/alphago-logo.png',
+          ratio: '1:1',
+          placeholderText: 'AlphaGo Logo',
+          caption: 'From Zero to Hero'
+        }
       ]
     }
   },
@@ -78,7 +96,13 @@ export const SLIDES: SlideContent[] = [
         '类比：刚出生的机器人连站都站不稳，大脑是一张白纸。'
       ],
       media: [
-        { type: 'image', placeholderText: '随机乱下的棋盘', caption: 'Random Initialization' }
+        {
+          type: 'image',
+          src: '/pictures/random-go-board.png',
+          ratio: '4:3',
+          placeholderText: '随机乱下的棋盘',
+          caption: 'Random Initialization'
+        }
       ]
     }
   },
@@ -124,7 +148,13 @@ export const SLIDES: SlideContent[] = [
         '启示：机器人也可能学出人类直觉之外的动作。'
       ],
       media: [
-        { type: 'image', placeholderText: 'AlphaGo Zero 曲线图', caption: 'Superhuman Performance' }
+        {
+          type: 'image',
+          src: '/pictures/alphago-training-curve.png',
+          ratio: '16:9',
+          placeholderText: 'AlphaGo Zero 曲线图',
+          caption: 'Superhuman Performance'
+        }
       ]
     }
   },
@@ -157,7 +187,13 @@ export const SLIDES: SlideContent[] = [
         '本质：试错 (Trial & Error) + 奖励信号 (Reward Signal)。'
       ],
       media: [
-         { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
+        {
+          type: 'image',
+          src: '/pictures/rl-loop-diagram.png',
+          ratio: '16:9',
+          placeholderText: '简单RL循环示意图',
+          caption: 'The RL Loop'
+        }
       ]
     }
   },
@@ -192,7 +228,13 @@ export const SLIDES: SlideContent[] = [
         'RL 本质上是“人工小脑”：用试错把控制策略逼出来。'
       ],
       media: [
-        { type: 'image', placeholderText: '婴儿迈步', caption: 'CPG + Cerebellum Adaptation' }
+        {
+          type: 'image',
+          src: '/pictures/baby-first-steps.jpg',
+          ratio: '3:4',
+          placeholderText: '婴儿迈步',
+          caption: 'CPG + Cerebellum Adaptation'
+        }
       ]
     }
   },
@@ -221,15 +263,72 @@ export const SLIDES: SlideContent[] = [
     content: {
       text: [
         '高维观测 (Observations)：300+ 维数据输入。',
-        '高维动作 (Actions)：17+ 个电机同时控制。',
+        '高维动作 (Actions)：17 维连续 torque，范围约 [-0.4, 0.4]。',
         '目标：保持平衡 + 向前移动。'
       ],
       media: [
-        { type: 'image', placeholderText: 'Humanoid 环境截图', caption: 'Mujoco Humanoid-v4' }
+        {
+          type: 'image',
+          src: '/pictures/humanoid-env.png',
+          ratio: '16:9',
+          placeholderText: 'Humanoid 环境截图',
+          caption: 'Mujoco Humanoid-v4'
+        }
       ]
     }
   },
-  // 15. Default Reward Structure
+  // 15. Humanoid Action Space
+  {
+    id: 'humanoid-action-space',
+    title: 'Humanoid 动作空间（17 维 torque）',
+    subtitle: 'MuJoCo / Gym 控制信号',
+    layout: 'list',
+    content: {
+      code: `# torque in N·m
+range = [-0.4, 0.4]
+indices = {
+  'abdomen': [0, 1, 2],
+  'right_leg': [3, 4, 5, 6],
+  'left_leg': [7, 8, 9, 10],
+  'right_arm': [11, 12, 13],
+  'left_arm': [14, 15, 16],
+}
+# 用这些分组做 reward shaping`,
+      sections: [
+        {
+          title: '躯干（3 维）',
+          description:
+            '0 abdomen_y 俯仰，1 abdomen_z 侧倾，2 abdomen_x 扭转；保持直立与转向的核心。'
+        },
+        {
+          title: '右腿（4 维）',
+          description:
+            '3 right_hip_x 前后摆腿；4 right_hip_z 侧向抬腿；5 right_hip_y 旋转；6 right_knee 弯曲伸直。'
+        },
+        {
+          title: '左腿（4 维）',
+          description:
+            '7 left_hip_x 前后摆腿；8 left_hip_z 侧向抬腿；9 left_hip_y 旋转；10 left_knee 弯曲伸直。'
+        },
+        {
+          title: '右臂（3 维）',
+          description:
+            '11 right_shoulder1 前后摆；12 right_shoulder2 左右摆；13 right_elbow 伸手、摆臂。'
+        },
+        {
+          title: '左臂（3 维）',
+          description:
+            '14 left_shoulder1 前后摆；15 left_shoulder2 左右摆；16 left_elbow 伸手、摆臂。'
+        },
+        {
+          title: 'Reward shaping 分组',
+          description:
+            '下肢：hip_x = [3, 7]，hip_z = [4, 8]，hip_y = [5, 9]，knees = [6, 10]；上肢：shoulders = [11, 12, 14, 15]，elbows = [13, 16]；躯干：abdomen = [0, 1, 2]。'
+        }
+      ]
+    }
+  },
+  // 16. Default Reward Structure
   {
     id: 'default-reward',
     title: '默认奖励结构',
@@ -249,7 +348,7 @@ export const SLIDES: SlideContent[] = [
   },
 
   // --- PART 5: My RL Experiment (Reward Focus) ---
-  // 16. My RL Intro
+  // 17. My RL Intro
   {
     id: 'my-rl-intro',
     title: '我的 RL 训练：Reward 决定一切',
@@ -264,7 +363,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-// 17. Learning Phases (Merged, final optimized)
+// 18. Learning Phases (Merged, final optimized)
 {
   id: 'rl-learning-phases',
   title: 'RL 步态进化三阶段',
@@ -333,7 +432,7 @@ export const SLIDES: SlideContent[] = [
   },
 
   // --- PART 6: Back to Unitree ---
-  // 21. How Unitree Solved
+  // 22. How Unitree Solved
   {
     id: 'unitree-solution',
     title: '宇树是如何解决的？',
@@ -349,7 +448,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // 22. Unitree Final
+  // 23. Unitree Final
   {
     id: 'unitree-final',
     title: '宇树最终能力展示',
@@ -361,7 +460,13 @@ export const SLIDES: SlideContent[] = [
         '这是 Reward 设计极致优化的结果。'
       ],
       media: [
-        { type: 'video', placeholderText: '宇树跑跳完整展示', caption: 'State of the Art Policy' }
+        {
+          type: 'video',
+          src: '/videos/unitree-showcase.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树跑跳完整展示',
+          caption: 'State of the Art Policy'
+        }
       ]
     }
   },
