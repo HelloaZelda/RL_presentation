@@ -264,31 +264,55 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
- // 17. Learning Phases (Merged, using grid)
+// 17. Learning Phases (Merged, final optimized)
 {
   id: 'rl-learning-phases',
   title: 'RL 步态进化三阶段',
-  subtitle: '从乱动 → 摔 → 蹒跚',
+  subtitle: '从站不稳 → 一走就倒 → 终于能挪动',
   layout: 'grid',
   content: {
     sections: [
       {
         title: '阶段 1：完全站不稳',
         icon: 'Activity',
-        description: '站着就 +5 → 疯狂乱动 → 想站却站不住。',
-        media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
+        description:
+          '• Healthy Reward = 不摔倒就加分。\n' +
+          '• 机器人疯狂抖动，乱试各种姿势。\n' +
+          '• 但重心控制为 0 → 连站稳都做不到。',
+        media: { 
+          type: 'video', 
+          src: '/videos/p1.mp4',   // ← 你本地视频路径
+          ratio: '16:9',
+          caption: 'P1：完全站不稳，动作混乱'
+        }
       },
       {
-        title: '阶段 2：迈步就摔',
+        title: '阶段 2：一走就倒',
         icon: 'Zap',
-        description: 'Forward Reward 让它“动一下就得分” → 一动就摔。',
-        media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
+        description:
+          '• Forward Reward = 一动就得分。\n' +
+          '• 学会迈步，但下一秒立刻摔倒。\n' +
+          '• 典型模式：迈一步 → 摔倒 → 重来。',
+        media: { 
+          type: 'video', 
+          src: '/videos/p2.mp4',
+          ratio: '16:9',
+          caption: 'P2：迈步会动，但一走就倒'
+        }
       },
       {
-        title: '阶段 3：蹒跚走路',
+        title: '阶段 3：能挪动（蹒跚前进）',
         icon: 'Scale',
-        description: 'Healthy + Forward 的折中 → 左右摇晃但能走。',
-        media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
+        description:
+          '• Healthy(站稳) + Forward(前进) 找到折中。\n' +
+          '• 开始像喝醉一样地挪动，但能保持平衡。\n' +
+          '• 第一次出现“可持续步态”。',
+        media: { 
+          type: 'video', 
+          src: '/videos/p3.mp4',
+          ratio: '16:9',
+          caption: 'P3：能挪动但不自然，像醉步'
+        }
       }
     ]
   }
