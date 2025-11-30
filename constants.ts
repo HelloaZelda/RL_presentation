@@ -6,7 +6,7 @@ export const SLIDES: SlideContent[] = [
   {
     id: 'cover',
     title: '宇树机器人是如何学会走路的？',
-    subtitle: '强化学习 RL 课堂分享',
+    subtitle: '强化学习 RL',
     layout: 'cover',
     content: {
       media: [
@@ -18,13 +18,13 @@ export const SLIDES: SlideContent[] = [
   {
     id: 'why-shocking',
     title: '宇树为什么震撼？',
-    subtitle: '不是“写程序”，而是“训练出来的”',
+    subtitle: '不是普通算法，而是“训练出来的”',
     layout: 'media-text',
     content: {
       text: [
-        '宇树的动作不是人类一步一步教的。',
+        '宇树的动作不是通过规则实现的。',
         '关键技术：强化学习 (RL) + 大规模仿真训练。',
-        '结论：不是告诉它“怎么走”，而是让它自己“悟”出最稳的走法。'
+        '不是告诉它“怎么走”，而是让它自己“悟”出最稳的走法。'
       ],
       media: [
         { type: 'image', placeholderText: '跑、跳、抗推展示', caption: 'Running, Jumping, Pushing' }
@@ -51,8 +51,8 @@ export const SLIDES: SlideContent[] = [
   // 4. Why AlphaGo
   {
     id: 'why-alphago',
-    title: '为什么先讲 AlphaGo Zero？',
-    subtitle: '理解“从零学会”的最佳案例',
+    title: 'AlphaGo Zero',
+    subtitle: 'RL的最佳案例',
     layout: 'media-text',
     content: {
       text: [
@@ -119,8 +119,8 @@ export const SLIDES: SlideContent[] = [
     layout: 'media-text',
     content: {
       text: [
-        '超过 Master 版本，成为史上最强。',
-        '创造了人类从未见过的新定式。',
+        '超过原始版本，成为史上最强。',
+        '创造了人类从未见过的新棋法。',
         '启示：机器人也可能学出人类直觉之外的动作。'
       ],
       media: [
@@ -165,7 +165,7 @@ export const SLIDES: SlideContent[] = [
   {
     id: 'rl-framework',
     title: 'RL 结构图',
-    subtitle: '关键一页',
+    subtitle: '奖励',
     layout: 'grid',
     content: {
       sections: [
@@ -177,23 +177,26 @@ export const SLIDES: SlideContent[] = [
     }
   },
   // 12. Human Analogy
-  {
-    id: 'rl-human-analogy',
-    title: '类比人类：婴儿学走路',
-    subtitle: '小脑 vs RL',
-    layout: 'media-text',
-    content: {
-      text: [
-        '婴儿学走路完全同构：',
-        '摔倒 → 疼（负奖励） → 小脑纠正动作。',
-        '走稳 → 这种感觉对（正奖励） → 记住这个动作。',
-        'RL 就是“机器人版的小脑”。'
-      ],
-      media: [
-        { type: 'image', placeholderText: '婴儿学走路', caption: 'Biological Reinforcement Learning' }
-      ]
-    }
-  },
+{
+  id: 'rl-human-analogy',
+  title: '人类学走路',
+  subtitle: '先天 CPG + 小脑误差校正',
+  layout: 'media-text',
+  content: {
+    text: [
+      '人类学走路不是靠奖励最大化，而是：',
+      '1）先天 CPG 提供节律（基因写好的步伐程序）。',
+      '2）小脑用感觉反馈做误差校正（摔倒 → 调整 → 更稳）。',
+      '3）因此“人类学走路很容易”，底层结构已经准备好了。',
+      '但机器没有 CPG 和小脑，只能靠无数次摔倒从零学起。',
+      'RL 本质上是“人工小脑”：用试错把控制策略逼出来。'
+    ],
+    media: [
+      { type: 'image', placeholderText: '婴儿迈步', caption: 'CPG + Cerebellum Adaptation' }
+    ]
+  }
+}
+
 
   // --- PART 4: Big Robots ---
   // 13. Sim vs Real
@@ -261,60 +264,48 @@ export const SLIDES: SlideContent[] = [
       ]
     }
   },
-  // 17. Phase 1
-  {
-    id: 'phase-1',
-    title: '视频阶段 1：完全站不稳',
-    subtitle: '原因：Healthy Reward 主导',
-    layout: 'media-text',
-    content: {
-      text: [
-        '现象：疯狂乱动，试图站住但做不到。',
-        '原因：Healthy Reward = 站着就 +5。',
-        '它为了拿这 5 分，尝试各种奇怪姿势。',
-        '总结：Reward 给了目标，但没教“怎么达成”，所以全乱。'
-      ],
-      media: [
-        { type: 'video', placeholderText: 'Phase 1: 疯狂乱动', caption: 'Trying to stay "Healthy"' }
-      ]
-    }
-  },
-  // 18. Phase 2
-  {
-    id: 'phase-2',
-    title: '视频阶段 2：迈步就摔',
-    subtitle: '原因：Forward Reward 激励',
-    layout: 'media-text',
-    content: {
-      text: [
-        '现象：向前冲一下，然后立马摔倒。',
-        '原因：Forward Reward = 动一下有分。',
-        '它发现“动”能得分，但没学会控制重心。',
-        '总结：Reward 激励它动，但没教它“稳”。'
-      ],
-      media: [
-        { type: 'video', placeholderText: 'Phase 2: 迈步即摔', caption: 'Greedy for Forward Reward' }
-      ]
-    }
-  },
-  // 19. Phase 3
-  {
-    id: 'phase-3',
-    title: '视频阶段 3：蹒跚走路',
-    subtitle: '原因：Healthy + Forward 折中',
-    layout: 'media-text',
-    content: {
-      text: [
-        '现象：像喝醉了一样，左右摇晃但能走。',
-        '原因：Healthy (别摔) + Forward (要动) 的博弈结果。',
-        '策略发现“晃着走”既能前进又不容易摔。',
-        '总结：Reward 没教“自然”，只教了“活着+前进”。'
-      ],
-      media: [
-        { type: 'video', placeholderText: 'Phase 3: 蹒跚步态', caption: 'The Trade-off Solution' }
-      ]
-    }
-  },
+// 17. Learning Phases (Merged)
+{
+  id: 'rl-learning-phases',
+  title: 'RL 步态进化三阶段',
+  subtitle: '从乱动 → 摔 → 蹒跚',
+  layout: 'three-media-text',
+  content: {
+    columns: [
+      {
+        title: '阶段 1：完全站不稳',
+        subtitle: 'Healthy Reward 主导',
+        text: [
+          '现象：疯狂乱动，想站却站不住。',
+          '原因：站着就 +5，策略开始乱试。',
+          '结论：Reward 给了目标，但没教方法。'
+        ],
+        media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
+      },
+      {
+        title: '阶段 2：迈步就摔',
+        subtitle: 'Forward Reward 激励',
+        text: [
+          '现象：冲一下前进，然后立马摔倒。',
+          '原因：动一下有分，但不会控重心。',
+          '结论：Reward 激励“动”，但没教“稳”。'
+        ],
+        media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
+      },
+      {
+        title: '阶段 3：蹒跚走路',
+        subtitle: 'Healthy + Forward 折中',
+        text: [
+          '现象：像喝醉一样，但能走。',
+          '原因：别摔 + 要动 → 摇摆式折中。',
+          '结论：“活着+前进”但不“自然”。'
+        ],
+        media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
+      }
+    ]
+  }
+}
+
   // 20. My RL Summary
   {
     id: 'my-rl-summary',
@@ -330,22 +321,23 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // --- PART 6: Back to Unitree ---
-  // 21. How Unitree Solved
-  {
-    id: 'unitree-solution',
-    title: '宇树是如何解决的？',
-    subtitle: '为什么它走得那么好？',
-    layout: 'grid',
-    content: {
-      sections: [
-        { title: '精细 Reward', icon: 'Smile', description: '加入姿态、抬脚高度、平滑度等奖励，强迫动作像人。' },
-        { title: '大规模训练', icon: 'Layers', description: '海量环境并行，练得更多。' },
-        { title: '物理高保真', icon: 'Cpu', description: 'Sim2Real 迁移无缝衔接。' },
-        { title: '抗扰动', icon: 'ShieldCheck', description: '专门训练推搡恢复能力。' }
-      ]
-    }
-  },
+// --- PART 6: Back to Unitree ---
+// 21. How Unitree Solved
+{
+  id: 'unitree-solution',
+  title: '宇树是如何解决的？',
+  subtitle: '为什么它走得那么好？',
+  layout: 'grid',
+  content: {
+    sections: [
+      { title: '精细 Reward', icon: 'Smile', description: '引入姿态、抬脚高度、节律平滑等指标，让步态更像人。' },
+      { title: '大规模训练', icon: 'Layers', description: '成百上千环境并行训练，积累极庞大的运动经验。' },
+      { title: '高精度物理建模', icon: 'Cpu', description: '重力、摩擦、关节特性都严谨还原，保证在现实机器上也稳定。' },
+      { title: '抗扰动强化', icon: 'ShieldCheck', description: '专门训练被推、被拉、打滑后的快速恢复能力。' }
+    ]
+  }
+}
+
   // 22. Unitree Final
   {
     id: 'unitree-final',
@@ -355,7 +347,6 @@ export const SLIDES: SlideContent[] = [
     content: {
       text: [
         '高速奔跑、灵活跳跃、稳定抗推。',
-        '对比我的“蹒跚阶段”，反衬宇树的强大。',
         '这是 Reward 设计极致优化的结果。'
       ],
       media: [
@@ -371,7 +362,7 @@ export const SLIDES: SlideContent[] = [
     layout: 'concept',
     content: {
       sections: [
-        { title: '无需编程', icon: 'Code', description: '不用写死动作库，不用调 PID。' },
+        { title: '无需编程', icon: 'Code', description: '不用写死动作库。' },
         { title: '自动生成', icon: 'Zap', description: '未来所有复杂动作都将自动学出。' },
         { title: '更像生物', icon: 'DNA', description: '赋予机器人类似生物的运动直觉。' } // Mapping DNA to Bot/Activity conceptually if DNA icon missing, using generic
       ]
