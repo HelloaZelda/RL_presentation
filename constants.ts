@@ -157,7 +157,7 @@ export const SLIDES: SlideContent[] = [
         '本质：试错 (Trial & Error) + 奖励信号 (Reward Signal)。'
       ],
       media: [
-         { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
+        { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
       ]
     }
   },
@@ -177,26 +177,28 @@ export const SLIDES: SlideContent[] = [
     }
   },
   // 12. Human Analogy
-{
-  id: 'rl-human-analogy',
-  title: '人类学走路',
-  subtitle: '先天 CPG + 小脑误差校正',
-  layout: 'media-text',
-  content: {
-    text: [
-      '人类学走路不是靠奖励最大化，而是：',
-      '1）先天 CPG 提供节律（基因写好的步伐程序）。',
-      '2）小脑用感觉反馈做误差校正（摔倒 → 调整 → 更稳）。',
-      '3）因此“人类学走路很容易”，底层结构已经准备好了。',
-      '但机器没有 CPG 和小脑，只能靠无数次摔倒从零学起。',
-      'RL 本质上是“人工小脑”：用试错把控制策略逼出来。'
-    ],
-    media: [
-      { type: 'image', placeholderText: '婴儿迈步', caption: 'CPG + Cerebellum Adaptation' }
-    ]
-  }
-}
+  {
+    id: 'rl-human-analogy',
+    title: '人类学走路',
+    subtitle: '先天 CPG + 小脑误差校正',
+    layout: 'media-text',
+    content: {
+      text: [
+        '人类学走路不是靠奖励最大化，而是：',
+        '1）先天 CPG 提供节律（基因写好的步伐程序）。',
+        '2）小脑用感觉反馈做误差校正（摔倒 → 调整 → 更稳）。',
+        '3）因此“人类学走路很容易”，底层结构已经准备好了。',
+        '但机器没有 CPG 和小脑，只能靠无数次摔倒从零学起。',
+        'RL 本质上是“人工小脑”：用试错把控制策略逼出来。'
+      ],
+      media: [
+        { type: 'image', placeholderText: '婴儿迈步', caption: 'CPG + Cerebellum Adaptation' }
+      ]
+    }
+  },
 
+  // 🔥 注意：这里需要逗号！
+  ],
 
   // --- PART 4: Big Robots ---
   // 13. Sim vs Real
@@ -249,7 +251,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // --- PART 5: My RL Experiment (Reward Focus) ---
+  // --- PART 5: My RL Experiment ---
   // 16. My RL Intro
   {
     id: 'my-rl-intro',
@@ -264,47 +266,51 @@ export const SLIDES: SlideContent[] = [
       ]
     }
   },
-// 17. Learning Phases (Merged)
-{
-  id: 'rl-learning-phases',
-  title: 'RL 步态进化三阶段',
-  subtitle: '从乱动 → 摔 → 蹒跚',
-  layout: 'three-media-text',
-  content: {
-    columns: [
-      {
-        title: '阶段 1：完全站不稳',
-        subtitle: 'Healthy Reward 主导',
-        text: [
-          '现象：疯狂乱动，想站却站不住。',
-          '原因：站着就 +5，策略开始乱试。',
-          '结论：Reward 给了目标，但没教方法。'
-        ],
-        media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
-      },
-      {
-        title: '阶段 2：迈步就摔',
-        subtitle: 'Forward Reward 激励',
-        text: [
-          '现象：冲一下前进，然后立马摔倒。',
-          '原因：动一下有分，但不会控重心。',
-          '结论：Reward 激励“动”，但没教“稳”。'
-        ],
-        media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
-      },
-      {
-        title: '阶段 3：蹒跚走路',
-        subtitle: 'Healthy + Forward 折中',
-        text: [
-          '现象：像喝醉一样，但能走。',
-          '原因：别摔 + 要动 → 摇摆式折中。',
-          '结论：“活着+前进”但不“自然”。'
-        ],
-        media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
-      }
-    ]
-  }
-}
+
+  // 17. Learning Phases (Merged)
+  {
+    id: 'rl-learning-phases',
+    title: 'RL 步态进化三阶段',
+    subtitle: '从乱动 → 摔 → 蹒跚',
+    layout: 'three-media-text',
+    content: {
+      columns: [
+        {
+          title: '阶段 1：完全站不稳',
+          subtitle: 'Healthy Reward 主导',
+          text: [
+            '现象：疯狂乱动，想站却站不住。',
+            '原因：站着就 +5，策略开始乱试。',
+            '结论：Reward 给了目标，但没教方法。'
+          ],
+          media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
+        },
+        {
+          title: '阶段 2：迈步就摔',
+          subtitle: 'Forward Reward 激励',
+          text: [
+            '现象：冲一下前进，然后立马摔倒。',
+            '原因：动一下有分，但不会控重心。',
+            '结论：Reward 激励“动”，但没教“稳”。'
+          ],
+          media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
+        },
+        {
+          title: '阶段 3：蹒跚走路',
+          subtitle: 'Healthy + Forward 折中',
+          text: [
+            '现象：像喝醉一样，但能走。',
+            '原因：别摔 + 要动 → 摇摆式折中。',
+            '结论：“活着+前进”但不“自然”。'
+          ],
+          media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
+        }
+      ]
+    }
+  },
+
+  // 🔥 注意：这里也需要逗号！
+  },
 
   // 20. My RL Summary
   {
@@ -321,22 +327,25 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-// --- PART 6: Back to Unitree ---
-// 21. How Unitree Solved
-{
-  id: 'unitree-solution',
-  title: '宇树是如何解决的？',
-  subtitle: '为什么它走得那么好？',
-  layout: 'grid',
-  content: {
-    sections: [
-      { title: '精细 Reward', icon: 'Smile', description: '引入姿态、抬脚高度、节律平滑等指标，让步态更像人。' },
-      { title: '大规模训练', icon: 'Layers', description: '成百上千环境并行训练，积累极庞大的运动经验。' },
-      { title: '高精度物理建模', icon: 'Cpu', description: '重力、摩擦、关节特性都严谨还原，保证在现实机器上也稳定。' },
-      { title: '抗扰动强化', icon: 'ShieldCheck', description: '专门训练被推、被拉、打滑后的快速恢复能力。' }
-    ]
-  }
-}
+  // --- PART 6: Back to Unitree ---
+  // 21. How Unitree Solved
+  {
+    id: 'unitree-solution',
+    title: '宇树是如何解决的？',
+    subtitle: '为什么它走得那么好？',
+    layout: 'grid',
+    content: {
+      sections: [
+        { title: '精细 Reward', icon: 'Smile', description: '引入姿态、抬脚高度、节律平滑等指标，让步态更像人。' },
+        { title: '大规模训练', icon: 'Layers', description: '成百上千环境并行训练，积累极庞大的运动经验。' },
+        { title: '高精度物理建模', icon: 'Cpu', description: '重力、摩擦、关节特性都严谨还原，保证在现实机器上也稳定。' },
+        { title: '抗扰动强化', icon: 'ShieldCheck', description: '专门训练被推、被拉、打滑后的快速恢复能力。' }
+      ]
+    }
+  },
+
+  // 🔥 注意：这里也必须加逗号！
+  },
 
   // 22. Unitree Final
   {
@@ -364,7 +373,7 @@ export const SLIDES: SlideContent[] = [
       sections: [
         { title: '无需编程', icon: 'Code', description: '不用写死动作库。' },
         { title: '自动生成', icon: 'Zap', description: '未来所有复杂动作都将自动学出。' },
-        { title: '更像生物', icon: 'DNA', description: '赋予机器人类似生物的运动直觉。' } // Mapping DNA to Bot/Activity conceptually if DNA icon missing, using generic
+        { title: '更像生物', icon: 'DNA', description: '赋予机器人类似生物的运动直觉。' }
       ]
     }
   },
