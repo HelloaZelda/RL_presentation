@@ -1,0 +1,5 @@
+{
+  "name": "Unitree RL Presentation",
+  "description": "A dynamic, slide-based presentation website explaining how Unitree robots learn to walk using Reinforcement Learning, featuring AI-powered explanations.",
+  "requestFramePermissions": []
+}
