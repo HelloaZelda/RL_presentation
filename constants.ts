@@ -10,12 +10,7 @@ export const SLIDES: SlideContent[] = [
     layout: 'cover',
     content: {
       media: [
-        { 
-          type: 'video', 
-          placeholderText: 'Unitree 进化史 (Bilibili)', 
-          caption: 'Unitree Robotics - Evolution of Motion',
-          src: '//player.bilibili.com/player.html?bvid=BV1wC4y1H7CL&page=1&high_quality=1&danmaku=0' // Unitree B2 Bilibili Source
-        }
+        { type: 'video', placeholderText: '宇树机器人宣传片', caption: 'Unitree Robotics Demo' }
       ]
     }
   },
@@ -32,12 +27,7 @@ export const SLIDES: SlideContent[] = [
         '结论：不是告诉它“怎么走”，而是让它自己“悟”出最稳的走法。'
       ],
       media: [
-        { 
-          type: 'image', 
-          placeholderText: '跑、跳、抗推展示', 
-          caption: 'Unitree B2 Running & Jumping',
-          src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1000&auto=format&fit=crop'
-        }
+        { type: 'image', placeholderText: '跑、跳、抗推展示', caption: 'Running, Jumping, Pushing' }
       ]
     }
   },
@@ -71,12 +61,7 @@ export const SLIDES: SlideContent[] = [
         '它的学习方式，和机器人学走路本质上一模一样。'
       ],
       media: [
-        { 
-          type: 'image', 
-          placeholderText: 'AlphaGo Logo', 
-          caption: 'From Zero to Hero',
-          src: 'https://upload.wikimedia.org/wikipedia/en/3/35/AlphaGo_logo.svg'
-        }
+        { type: 'image', placeholderText: 'AlphaGo Logo', caption: 'From Zero to Hero' }
       ]
     }
   },
@@ -93,12 +78,7 @@ export const SLIDES: SlideContent[] = [
         '类比：刚出生的机器人连站都站不稳，大脑是一张白纸。'
       ],
       media: [
-        { 
-          type: 'image', 
-          placeholderText: 'Go Board', 
-          caption: 'Random Initialization',
-          src: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=1000&auto=format&fit=crop'
-        }
+        { type: 'image', placeholderText: '随机乱下的棋盘', caption: 'Random Initialization' }
       ]
     }
   },
@@ -144,12 +124,7 @@ export const SLIDES: SlideContent[] = [
         '启示：机器人也可能学出人类直觉之外的动作。'
       ],
       media: [
-        { 
-          type: 'image', 
-          placeholderText: 'AlphaGo Data Chart', 
-          caption: 'Superhuman Performance',
-          src: 'https://deepmind.google/static/imagery/hero-research-alphago.jpg'
-        }
+        { type: 'image', placeholderText: 'AlphaGo Zero 曲线图', caption: 'Superhuman Performance' }
       ]
     }
   },
@@ -182,12 +157,7 @@ export const SLIDES: SlideContent[] = [
         '本质：试错 (Trial & Error) + 奖励信号 (Reward Signal)。'
       ],
       media: [
-         { 
-           type: 'image', 
-           placeholderText: 'RL Loop Diagram', 
-           caption: 'The Reinforcement Learning Loop',
-           src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1200px-Reinforcement_learning_diagram.svg.png'
-         }
+         { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
       ]
     }
   },
@@ -220,12 +190,7 @@ export const SLIDES: SlideContent[] = [
         'RL 就是“机器人版的小脑”。'
       ],
       media: [
-        { 
-          type: 'video', 
-          placeholderText: '婴儿学走路', 
-          caption: 'Trial and Error Learning',
-          src: 'https://www.youtube.com/embed/M9S_K8tVvLen?autoplay=1&mute=1'
-        }
+        { type: 'image', placeholderText: '婴儿学走路', caption: 'Biological Reinforcement Learning' }
       ]
     }
   },
@@ -258,12 +223,7 @@ export const SLIDES: SlideContent[] = [
         '目标：保持平衡 + 向前移动。'
       ],
       media: [
-        { 
-          type: 'image', 
-          placeholderText: 'Mujoco Simulation', 
-          caption: 'Mujoco Humanoid Environment',
-          src: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/MuJoCo_logo.svg'
-        }
+        { type: 'image', placeholderText: 'Humanoid 环境截图', caption: 'Mujoco Humanoid-v4' }
       ]
     }
   },
@@ -287,8 +247,6 @@ export const SLIDES: SlideContent[] = [
   },
 
   // --- PART 5: My RL Experiment (Reward Focus) ---
-  // User can now click these placeholders to add their own video links
-  
   // 16. My RL Intro
   {
     id: 'my-rl-intro',
@@ -317,7 +275,7 @@ export const SLIDES: SlideContent[] = [
         '总结：Reward 给了目标，但没教“怎么达成”，所以全乱。'
       ],
       media: [
-        { type: 'video', placeholderText: '[点击添加：疯狂乱动视频]', caption: 'Phase 1: Trying to stay "Healthy"' }
+        { type: 'video', placeholderText: 'Phase 1: 疯狂乱动', caption: 'Trying to stay "Healthy"' }
       ]
     }
   },
@@ -335,7 +293,7 @@ export const SLIDES: SlideContent[] = [
         '总结：Reward 激励它动，但没教它“稳”。'
       ],
       media: [
-        { type: 'video', placeholderText: '[点击添加：迈步即摔视频]', caption: 'Phase 2: Greedy for Forward Reward' }
+        { type: 'video', placeholderText: 'Phase 2: 迈步即摔', caption: 'Greedy for Forward Reward' }
       ]
     }
   },
@@ -353,7 +311,7 @@ export const SLIDES: SlideContent[] = [
         '总结：Reward 没教“自然”，只教了“活着+前进”。'
       ],
       media: [
-        { type: 'video', placeholderText: '[点击添加：蹒跚步态视频]', caption: 'Phase 3: The Trade-off Solution' }
+        { type: 'video', placeholderText: 'Phase 3: 蹒跚步态', caption: 'The Trade-off Solution' }
       ]
     }
   },
@@ -401,12 +359,7 @@ export const SLIDES: SlideContent[] = [
         '这是 Reward 设计极致优化的结果。'
       ],
       media: [
-        { 
-          type: 'video', 
-          placeholderText: '宇树跑跳完整展示', 
-          caption: 'State of the Art Policy',
-          src: 'https://www.youtube.com/embed/zXaZkdD4UA0?autoplay=1&mute=1'
-        }
+        { type: 'video', placeholderText: '宇树跑跳完整展示', caption: 'State of the Art Policy' }
       ]
     }
   },
@@ -420,7 +373,7 @@ export const SLIDES: SlideContent[] = [
       sections: [
         { title: '无需编程', icon: 'Code', description: '不用写死动作库，不用调 PID。' },
         { title: '自动生成', icon: 'Zap', description: '未来所有复杂动作都将自动学出。' },
-        { title: '更像生物', icon: 'DNA', description: '赋予机器人类似生物的运动直觉。' }
+        { title: '更像生物', icon: 'DNA', description: '赋予机器人类似生物的运动直觉。' } // Mapping DNA to Bot/Activity conceptually if DNA icon missing, using generic
       ]
     }
   },

@@ -115,7 +115,7 @@ const App: React.FC = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
                {slide.content.media?.map((m, i) => (
-                 <MediaPlaceholder key={i} type={m.type} text={m.placeholderText} caption={m.caption} height="h-48 md:h-80" />
+                 <MediaPlaceholder key={i} type={m.type} text={m.placeholderText} caption={m.caption} height="h-48 md:h-64" />
                ))}
             </motion.div>
           </div>
