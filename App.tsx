@@ -114,7 +114,15 @@ const App: React.FC = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
                {slide.content.media?.map((m, i) => (
-                 <MediaPlaceholder key={i} type={m.type} text={m.placeholderText} caption={m.caption} height="h-48 md:h-64" />
+                 <MediaPlaceholder
+                   key={i}
+                   type={m.type}
+                   src={m.src}
+                   ratio={m.ratio}
+                   text={m.placeholderText}
+                   caption={m.caption}
+                   height="h-48 md:h-64"
+                 />
                ))}
             </motion.div>
           </div>
@@ -194,7 +202,14 @@ const App: React.FC = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + i * 0.2 }}
                    >
-                     <MediaPlaceholder type={m.type} text={m.placeholderText} caption={m.caption} height="h-64 md:h-80" />
+                     <MediaPlaceholder
+                       type={m.type}
+                       src={m.src}
+                       ratio={m.ratio}
+                       text={m.placeholderText}
+                       caption={m.caption}
+                       height="h-64 md:h-80"
+                     />
                    </motion.div>
                 ))}
              </div>
@@ -241,7 +256,14 @@ const App: React.FC = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.2 + 0.3 }}
                     >
-                      <MediaPlaceholder type={m.type} text={m.placeholderText} caption={m.caption} height="h-48" />
+                      <MediaPlaceholder
+                        type={m.type}
+                        src={m.src}
+                        ratio={m.ratio}
+                        text={m.placeholderText}
+                        caption={m.caption}
+                        height="h-48"
+                      />
                     </motion.div>
                   ))}
                 </div>
