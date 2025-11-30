@@ -11,6 +11,9 @@ interface MediaPlaceholderProps {
 }
 
 const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({ type, src, ratio, text, caption, height = 'h-64' }) => {
+  // Generate a random seed for picsum based on text length to keep it consistent per refresh for the same content
+  const randomId = text ? text.length + (type === 'video' ? 100 : 0) : Math.floor(Math.random() * 1000);
+  const bgUrl = `https://picsum.photos/seed/${randomId}/800/600`;
   const aspectStyle = ratio ? { aspectRatio: ratio } : undefined;
 
   const renderMedia = () => {
@@ -33,9 +36,23 @@ const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({ type, src, ratio, t
 
     return (
       <>
+        <img
+          src={bgUrl}
+          alt="Placeholder"
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500 group-hover:scale-105 transform"
+        />
+      );
+    }
+
+    if (type === 'image' && src) {
+      return <img src={src} alt={caption || text || 'Media'} className="w-full h-full object-cover" />;
+    }
+
+    return (
+      <>
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black opacity-80" />
         <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-          <div className="bg-white/5 backdrop-blur-sm p-4 rounded-full mb-3 border border-white/10 group-hover:scale-110 transition-transform duration-300">
+          <div className="bg-black/50 backdrop-blur-sm p-4 rounded-full mb-3 border border-white/10 group-hover:scale-110 transition-transform duration-300">
             {type === 'video' ? <Play className="w-8 h-8 text-white fill-current" /> : <ImageIcon className="w-8 h-8 text-white" />}
           </div>
           <span className="text-white font-medium text-center drop-shadow-md px-4 py-1 bg-white/10 rounded-full text-sm">
