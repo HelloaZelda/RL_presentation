@@ -157,7 +157,7 @@ export const SLIDES: SlideContent[] = [
         '本质：试错 (Trial & Error) + 奖励信号 (Reward Signal)。'
       ],
       media: [
-        { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
+         { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
       ]
     }
   },
@@ -196,9 +196,6 @@ export const SLIDES: SlideContent[] = [
       ]
     }
   },
-
-  // 🔥 注意：这里需要逗号！
-  ],
 
   // --- PART 4: Big Robots ---
   // 13. Sim vs Real
@@ -251,7 +248,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // --- PART 5: My RL Experiment ---
+  // --- PART 5: My RL Experiment (Reward Focus) ---
   // 16. My RL Intro
   {
     id: 'my-rl-intro',
@@ -309,9 +306,6 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // 🔥 注意：这里也需要逗号！
-  },
-
   // 20. My RL Summary
   {
     id: 'my-rl-summary',
@@ -342,9 +336,6 @@ export const SLIDES: SlideContent[] = [
         { title: '抗扰动强化', icon: 'ShieldCheck', description: '专门训练被推、被拉、打滑后的快速恢复能力。' }
       ]
     }
-  },
-
-  // 🔥 注意：这里也必须加逗号！
   },
 
   // 22. Unitree Final
@@ -388,7 +379,7 @@ export const SLIDES: SlideContent[] = [
     content: {
       bullets: [
         'AlphaGo Zero：证明 RL 能从零学到最强。',
-        'RL 核心：奖励 (Reward) 定义行为价值观。',
+        'RL 核芯：奖励 (Reward) 定义行为价值观。',
         '我的实验：展示了奖励如何一步步逼出走路动作。',
         '宇树：把 RL + 大规模训练做到极致的成果。'
       ]
