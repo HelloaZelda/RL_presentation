@@ -264,48 +264,35 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // 17. Learning Phases (Merged)
-  {
-    id: 'rl-learning-phases',
-    title: 'RL 步态进化三阶段',
-    subtitle: '从乱动 → 摔 → 蹒跚',
-    layout: 'three-media-text',
-    content: {
-      columns: [
-        {
-          title: '阶段 1：完全站不稳',
-          subtitle: 'Healthy Reward 主导',
-          text: [
-            '现象：疯狂乱动，想站却站不住。',
-            '原因：站着就 +5，策略开始乱试。',
-            '结论：Reward 给了目标，但没教方法。'
-          ],
-          media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
-        },
-        {
-          title: '阶段 2：迈步就摔',
-          subtitle: 'Forward Reward 激励',
-          text: [
-            '现象：冲一下前进，然后立马摔倒。',
-            '原因：动一下有分，但不会控重心。',
-            '结论：Reward 激励“动”，但没教“稳”。'
-          ],
-          media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
-        },
-        {
-          title: '阶段 3：蹒跚走路',
-          subtitle: 'Healthy + Forward 折中',
-          text: [
-            '现象：像喝醉一样，但能走。',
-            '原因：别摔 + 要动 → 摇摆式折中。',
-            '结论：“活着+前进”但不“自然”。'
-          ],
-          media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
-        }
-      ]
-    }
-  },
-
+ // 17. Learning Phases (Merged, using grid)
+{
+  id: 'rl-learning-phases',
+  title: 'RL 步态进化三阶段',
+  subtitle: '从乱动 → 摔 → 蹒跚',
+  layout: 'grid',
+  content: {
+    sections: [
+      {
+        title: '阶段 1：完全站不稳',
+        icon: 'Activity',
+        description: '站着就 +5 → 疯狂乱动 → 想站却站不住。',
+        media: { type: 'video', placeholderText: 'Phase 1', caption: 'Trying to stay healthy' }
+      },
+      {
+        title: '阶段 2：迈步就摔',
+        icon: 'Zap',
+        description: 'Forward Reward 让它“动一下就得分” → 一动就摔。',
+        media: { type: 'video', placeholderText: 'Phase 2', caption: 'Forward but unstable' }
+      },
+      {
+        title: '阶段 3：蹒跚走路',
+        icon: 'Scale',
+        description: 'Healthy + Forward 的折中 → 左右摇晃但能走。',
+        media: { type: 'video', placeholderText: 'Phase 3', caption: 'Wobbly walking' }
+      }
+    ]
+  }
+},
   // 20. My RL Summary
   {
     id: 'my-rl-summary',
