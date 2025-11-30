@@ -19,6 +19,13 @@ export interface SlideContent {
       title: string;
       icon?: string;
       description: string;
+      media?: {
+        type: 'image' | 'video';
+        src?: string;
+        ratio?: string;
+        caption?: string;
+        placeholderText?: string;
+      };
     }[];
   };
 }

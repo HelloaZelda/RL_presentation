@@ -228,8 +228,8 @@ const App: React.FC = () => {
              {/* If sections (Breakthroughs) */}
              {slide.content.sections && (
                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                 {slide.content.sections.map((s, i) => (
-                   <motion.div 
+                {slide.content.sections.map((s, i) => (
+                  <motion.div
                     key={i}
                     className="flex items-start gap-4 p-4 md:p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-orange-500/50 transition-colors"
                     initial={{ opacity: 0, y: 20 }}
@@ -240,11 +240,23 @@ const App: React.FC = () => {
                       <div>
                         <h4 className="text-xl font-bold text-white mb-2">{s.title}</h4>
                         <p className="text-gray-400 text-sm md:text-base">{s.description}</p>
+                        {s.media && (
+                          <div className="mt-4">
+                            <MediaPlaceholder
+                              type={s.media.type}
+                              src={s.media.src}
+                              ratio={s.media.ratio}
+                              text={s.media.placeholderText}
+                              caption={s.media.caption}
+                              height="h-40 md:h-48"
+                            />
+                          </div>
+                        )}
                       </div>
-                   </motion.div>
-                 ))}
-               </div>
-             )}
+                  </motion.div>
+                ))}
+              </div>
+            )}
 
              {/* If media (Failures) */}
              {slide.content.media && (
