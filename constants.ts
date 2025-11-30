@@ -10,7 +10,13 @@ export const SLIDES: SlideContent[] = [
     layout: 'cover',
     content: {
       media: [
-        { type: 'video', placeholderText: '宇树机器人宣传片', caption: 'Unitree Robotics Demo' }
+        {
+          type: 'video',
+          src: '/videos/unitree-promo.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树机器人宣传片',
+          caption: 'Unitree Robotics Demo'
+        }
       ]
     }
   },
@@ -361,7 +367,13 @@ export const SLIDES: SlideContent[] = [
         '这是 Reward 设计极致优化的结果。'
       ],
       media: [
-        { type: 'video', placeholderText: '宇树跑跳完整展示', caption: 'State of the Art Policy' }
+        {
+          type: 'video',
+          src: '/videos/unitree-showcase.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树跑跳完整展示',
+          caption: 'State of the Art Policy'
+        }
       ]
     }
   },
