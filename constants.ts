@@ -263,7 +263,7 @@ export const SLIDES: SlideContent[] = [
     content: {
       text: [
         '高维观测 (Observations)：300+ 维数据输入。',
-        '高维动作 (Actions)：17+ 个电机同时控制。',
+        '高维动作 (Actions)：17 维连续 torque，范围约 [-0.4, 0.4]。',
         '目标：保持平衡 + 向前移动。'
       ],
       media: [
@@ -277,7 +277,58 @@ export const SLIDES: SlideContent[] = [
       ]
     }
   },
-  // 15. Default Reward Structure
+  // 15. Humanoid Action Space
+  {
+    id: 'humanoid-action-space',
+    title: 'Humanoid 动作空间（17 维 torque）',
+    subtitle: 'MuJoCo / Gym 控制信号',
+    layout: 'list',
+    content: {
+      code: `# torque in N·m
+range = [-0.4, 0.4]
+indices = {
+  'abdomen': [0, 1, 2],
+  'right_leg': [3, 4, 5, 6],
+  'left_leg': [7, 8, 9, 10],
+  'right_arm': [11, 12, 13],
+  'left_arm': [14, 15, 16],
+}
+# 用这些分组做 reward shaping`,
+      sections: [
+        {
+          title: '躯干（3 维）',
+          description:
+            '0 abdomen_y 俯仰，1 abdomen_z 侧倾，2 abdomen_x 扭转；保持直立与转向的核心。'
+        },
+        {
+          title: '右腿（4 维）',
+          description:
+            '3 right_hip_x 前后摆腿；4 right_hip_z 侧向抬腿；5 right_hip_y 旋转；6 right_knee 弯曲伸直。'
+        },
+        {
+          title: '左腿（4 维）',
+          description:
+            '7 left_hip_x 前后摆腿；8 left_hip_z 侧向抬腿；9 left_hip_y 旋转；10 left_knee 弯曲伸直。'
+        },
+        {
+          title: '右臂（3 维）',
+          description:
+            '11 right_shoulder1 前后摆；12 right_shoulder2 左右摆；13 right_elbow 伸手、摆臂。'
+        },
+        {
+          title: '左臂（3 维）',
+          description:
+            '14 left_shoulder1 前后摆；15 left_shoulder2 左右摆；16 left_elbow 伸手、摆臂。'
+        },
+        {
+          title: 'Reward shaping 分组',
+          description:
+            '下肢：hip_x = [3, 7]，hip_z = [4, 8]，hip_y = [5, 9]，knees = [6, 10]；上肢：shoulders = [11, 12, 14, 15]，elbows = [13, 16]；躯干：abdomen = [0, 1, 2]。'
+        }
+      ]
+    }
+  },
+  // 16. Default Reward Structure
   {
     id: 'default-reward',
     title: '默认奖励结构',
@@ -297,7 +348,7 @@ export const SLIDES: SlideContent[] = [
   },
 
   // --- PART 5: My RL Experiment (Reward Focus) ---
-  // 16. My RL Intro
+  // 17. My RL Intro
   {
     id: 'my-rl-intro',
     title: '我的 RL 训练：Reward 决定一切',
@@ -312,7 +363,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-// 17. Learning Phases (Merged, final optimized)
+// 18. Learning Phases (Merged, final optimized)
 {
   id: 'rl-learning-phases',
   title: 'RL 步态进化三阶段',
@@ -381,7 +432,7 @@ export const SLIDES: SlideContent[] = [
   },
 
   // --- PART 6: Back to Unitree ---
-  // 21. How Unitree Solved
+  // 22. How Unitree Solved
   {
     id: 'unitree-solution',
     title: '宇树是如何解决的？',
@@ -397,7 +448,7 @@ export const SLIDES: SlideContent[] = [
     }
   },
 
-  // 22. Unitree Final
+  // 23. Unitree Final
   {
     id: 'unitree-final',
     title: '宇树最终能力展示',
