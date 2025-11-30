@@ -10,7 +10,13 @@ export const SLIDES: SlideContent[] = [
     layout: 'cover',
     content: {
       media: [
-        { type: 'video', placeholderText: '宇树机器人宣传片', caption: 'Unitree Robotics Demo' }
+        {
+          type: 'video',
+          src: '/videos/unitree-promo.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树机器人宣传片',
+          caption: 'Unitree Robotics Demo'
+        }
       ]
     }
   },
@@ -27,7 +33,13 @@ export const SLIDES: SlideContent[] = [
         '不是告诉它“怎么走”，而是让它自己“悟”出最稳的走法。'
       ],
       media: [
-        { type: 'image', placeholderText: '跑、跳、抗推展示', caption: 'Running, Jumping, Pushing' }
+        {
+          type: 'image',
+          src: '/pictures/unitree-running.jpg',
+          ratio: '16:9',
+          placeholderText: '跑、跳、抗推展示',
+          caption: 'Running, Jumping, Pushing'
+        }
       ]
     }
   },
@@ -61,7 +73,13 @@ export const SLIDES: SlideContent[] = [
         '它的学习方式，和机器人学走路本质上一模一样。'
       ],
       media: [
-        { type: 'image', placeholderText: 'AlphaGo Logo', caption: 'From Zero to Hero' }
+        {
+          type: 'image',
+          src: '/pictures/alphago-logo.png',
+          ratio: '1:1',
+          placeholderText: 'AlphaGo Logo',
+          caption: 'From Zero to Hero'
+        }
       ]
     }
   },
@@ -78,7 +96,13 @@ export const SLIDES: SlideContent[] = [
         '类比：刚出生的机器人连站都站不稳，大脑是一张白纸。'
       ],
       media: [
-        { type: 'image', placeholderText: '随机乱下的棋盘', caption: 'Random Initialization' }
+        {
+          type: 'image',
+          src: '/pictures/random-go-board.png',
+          ratio: '4:3',
+          placeholderText: '随机乱下的棋盘',
+          caption: 'Random Initialization'
+        }
       ]
     }
   },
@@ -124,7 +148,13 @@ export const SLIDES: SlideContent[] = [
         '启示：机器人也可能学出人类直觉之外的动作。'
       ],
       media: [
-        { type: 'image', placeholderText: 'AlphaGo Zero 曲线图', caption: 'Superhuman Performance' }
+        {
+          type: 'image',
+          src: '/pictures/alphago-training-curve.png',
+          ratio: '16:9',
+          placeholderText: 'AlphaGo Zero 曲线图',
+          caption: 'Superhuman Performance'
+        }
       ]
     }
   },
@@ -157,7 +187,13 @@ export const SLIDES: SlideContent[] = [
         '本质：试错 (Trial & Error) + 奖励信号 (Reward Signal)。'
       ],
       media: [
-         { type: 'image', placeholderText: '简单RL循环示意图', caption: 'The RL Loop' }
+        {
+          type: 'image',
+          src: '/pictures/rl-loop-diagram.png',
+          ratio: '16:9',
+          placeholderText: '简单RL循环示意图',
+          caption: 'The RL Loop'
+        }
       ]
     }
   },
@@ -192,7 +228,13 @@ export const SLIDES: SlideContent[] = [
         'RL 本质上是“人工小脑”：用试错把控制策略逼出来。'
       ],
       media: [
-        { type: 'image', placeholderText: '婴儿迈步', caption: 'CPG + Cerebellum Adaptation' }
+        {
+          type: 'image',
+          src: '/pictures/baby-first-steps.jpg',
+          ratio: '3:4',
+          placeholderText: '婴儿迈步',
+          caption: 'CPG + Cerebellum Adaptation'
+        }
       ]
     }
   },
@@ -225,7 +267,13 @@ export const SLIDES: SlideContent[] = [
         '目标：保持平衡 + 向前移动。'
       ],
       media: [
-        { type: 'image', placeholderText: 'Humanoid 环境截图', caption: 'Mujoco Humanoid-v4' }
+        {
+          type: 'image',
+          src: '/pictures/humanoid-env.png',
+          ratio: '16:9',
+          placeholderText: 'Humanoid 环境截图',
+          caption: 'Mujoco Humanoid-v4'
+        }
       ]
     }
   },
@@ -361,7 +409,13 @@ export const SLIDES: SlideContent[] = [
         '这是 Reward 设计极致优化的结果。'
       ],
       media: [
-        { type: 'video', placeholderText: '宇树跑跳完整展示', caption: 'State of the Art Policy' }
+        {
+          type: 'video',
+          src: '/videos/unitree-showcase.mp4',
+          ratio: '16:9',
+          placeholderText: '宇树跑跳完整展示',
+          caption: 'State of the Art Policy'
+        }
       ]
     }
   },

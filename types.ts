@@ -10,6 +10,7 @@ export interface SlideContent {
     media?: {
       type: 'image' | 'video';
       src?: string;
+      ratio?: string;
       caption?: string;
       placeholderText?: string;
     }[];
