@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { SLIDES } from './constants';
 import { SlideContent } from './types';
 import MediaPlaceholder from './components/MediaPlaceholder';
-import AIAssistant from './components/AIAssistant';
 import { 
   ChevronRight, 
   ChevronLeft, 
@@ -387,8 +386,6 @@ const App: React.FC = () => {
         </button>
       </div>
 
-      {/* AI Assistant */}
-      <AIAssistant currentSlide={currentSlide} />
     </div>
   );
 };
